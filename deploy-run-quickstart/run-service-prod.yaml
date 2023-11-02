@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: deploy-run-service-prod
+spec:
+  template:
+    spec:
+      containers:
+      - name: myapp
+        image: us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run
+        ports:
+        - containerPort:  80

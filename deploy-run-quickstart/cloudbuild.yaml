@@ -1,0 +1,21 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '.', '-t', 'us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest']
+
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest']
+
+
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  entrypoint: gcloud
+  args:
+    [ "deploy", "apply", "--file", "clouddeploy.yaml", "--region", "us-central1", "--project", "onkar-17-cloud" ]
+
+
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  entrypoint: gcloud
+  args:
+    [
+      "deploy", "releases", "create", "rel1-${COMMIT_SHA}", "--project", "onkar-17-cloud", "--region", "us-central1", "--delivery-pipeline", "demo-cloud-deploy-run-pipeline", "--annotations", "commitId=${REVISION_ID}", "--images", "myapp=us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest"
+    ]
