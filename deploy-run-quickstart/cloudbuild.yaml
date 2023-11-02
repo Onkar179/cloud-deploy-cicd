@@ -10,7 +10,7 @@ steps:
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
   entrypoint: gcloud
   args:
-    [ "deploy", "apply", "--file", "clouddeploy.yaml", "--region", "us-central1", "--project", "onkar-17-cloud" ]
+    [ "deploy", "apply", "--file", "deploy-run-quickstart/clouddeploy.yaml", "--region", "us-central1", "--project", "onkar-17-cloud" ]
 
 
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
