@@ -32,7 +32,7 @@ metadata:
   name: run-qsprod
 description: Cloud Run production service
 run:
-  location: projects/onkar-17-cloud/locations/us-central1
+  location: projects/cysiv-dev-onkarn/locations/us-central1
 executionConfigs:
 - defaultPool:
     serviceAccount: cr-cd-sa@onkar-17-cloud.iam.gserviceaccount.com
