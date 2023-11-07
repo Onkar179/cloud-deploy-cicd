@@ -3,8 +3,8 @@ steps:
   args: ['build', '.', '-t', 'us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest', '-f', 'deploy-run-quickstart/Dockerfile']
 
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest']
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['push', 'us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest']
 
 
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
@@ -19,5 +19,9 @@ steps:
     [
       "deploy", "releases", "create", "rel1-${COMMIT_SHA}", "--project", "onkar-17-cloud", "--region", "us-central1", "--delivery-pipeline", "demo-cloud-deploy-run-pipeline", "--annotations", "commitId=${REVISION_ID}", "--images", "myapp=us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest", "--skaffold-file", "deploy-run-quickstart/skaffold.yaml"
     ]
+
+images:
+  - "us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest"
+  
 options:
   logging: CLOUD_LOGGING_ONLY
