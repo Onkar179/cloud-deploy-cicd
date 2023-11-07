@@ -6,9 +6,9 @@ description: main application pipeline
 serialPipeline:
   stages:
   - targetId: run-qsdev
-    profiles: [dev]
+    profiles: []
   - targetId: run-qsprod
-    profiles: [prod]
+    profiles: []
 ---
 
 apiVersion: deploy.cloud.google.com/v1
@@ -18,6 +18,8 @@ metadata:
 description: Cloud Run development service
 run:
   location: projects/onkar-17-cloud/locations/us-central1
+deployParameters:
+  service_name: "cloud-run-deplpy-dev"
 executionConfigs:
 - defaultPool:
     serviceAccount: cr-cd-sa@onkar-17-cloud.iam.gserviceaccount.com
@@ -33,6 +35,8 @@ metadata:
 description: Cloud Run production service
 run:
   location: projects/cysiv-dev-onkarn/locations/us-central1
+deployParameters:
+  service_name: "cloud-run-deplpy-prod"
 executionConfigs:
 - defaultPool:
     serviceAccount: cr-cd-sa@onkar-17-cloud.iam.gserviceaccount.com

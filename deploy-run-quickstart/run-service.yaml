@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: deploy-run-service-prod
+  name: deploy-run-service # from-param: ${service_name}
 spec:
   template:
     spec:
