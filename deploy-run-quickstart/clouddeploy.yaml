@@ -33,6 +33,7 @@ kind: Target
 metadata:
   name: run-qsprod
 description: Cloud Run production service
+requireApproval: true
 run:
   location: projects/cysiv-dev-onkarn/locations/us-central1
 deployParameters:
