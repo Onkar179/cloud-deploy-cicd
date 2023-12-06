@@ -3,8 +3,8 @@ steps:
   args: ['build', '.', '-t', 'us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest', '-f', 'deploy-run-quickstart/Dockerfile']
 
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us.gcr.io/onkar-17-cloud/demo-cloud-deploy-run:latest']
 
 
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
