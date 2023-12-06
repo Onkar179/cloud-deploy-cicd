@@ -19,7 +19,7 @@ description: Cloud Run development service
 run:
   location: projects/onkar-17-cloud/locations/us-central1
 deployParameters:
-  service_name: "cloud-run-deplpy-dev"
+  service_name: "cloud-run-deploy-dev"
 executionConfigs:
 - defaultPool:
     serviceAccount: cr-cd-sa@onkar-17-cloud.iam.gserviceaccount.com
@@ -37,7 +37,7 @@ requireApproval: true
 run:
   location: projects/cysiv-dev-onkarn/locations/us-central1
 deployParameters:
-  service_name: "cloud-run-deplpy-prod"
+  service_name: "cloud-run-deploy-prod"
 executionConfigs:
 - defaultPool:
     serviceAccount: cr-cd-sa@onkar-17-cloud.iam.gserviceaccount.com
