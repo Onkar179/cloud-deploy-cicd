@@ -1,0 +1,24 @@
+name: Branch Name Check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+
+jobs:
+  branch-name-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check branch name for Jira ID
+        run: |
+          BRANCH_NAME=$(echo "${{ github.event.pull_request.head.ref }}")
+          if ! echo "$BRANCH_NAME" | grep -Eq '^[A-Z]+-[0-9]+.*$'; then
+            echo "Branch name does not contain a valid Jira ticket ID."
+            echo "Please ensure the branch name follows the pattern: ABC-123-description."
+            exit 1
+          fi
